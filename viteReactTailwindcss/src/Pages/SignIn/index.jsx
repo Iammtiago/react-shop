@@ -4,7 +4,7 @@ import Layout from '../../Components/Layout'
 export default function SignIn() {
   return (
     <Layout>
-      <h3>Sign-in</h3>
+      <h1 className='m-2 text-3xl'>Sign-in</h1>
     </Layout>
   )
 }

@@ -4,7 +4,7 @@ import Layout from '../../Components/Layout'
 export default function NotFound() {
   return (
     <Layout>
-      <h1>NOT FOUND!</h1>
+      <h1 className='m-2 text-7xl'>NOT FOUND!</h1>
     </Layout>
   )
 }
