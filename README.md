@@ -1,4 +1,4 @@
-<!-- # [SHOPI](https://trendy-zone.vercel.app/) -->
+# [SHOPI]()
 
 ## Description
 
@@ -8,7 +8,7 @@ The application is developed using <b>React, Vite.js and Tailwind</b>. Leverages
 
 The site's design is fully responsive, meaning that it adapts optimally to different screen sizes, providing a consistent user experience on mobile devices, tablets and desktop computers. Simple animations have also been added using the <b>Framer Motion</b> library to enhance interactivity and visual aesthetics.
 
-<!-- [Live](https://trendy-zone.vercel.app/) -->
+<!-- [Live]() -->
 
 ## Features
 
