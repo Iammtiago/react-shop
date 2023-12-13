@@ -4,7 +4,7 @@ const Layout = ({ children }) => {
 
   
   return (
-    <div className='bg-slate-50 flex flex-col items-center mt-20 font- '>
+    <div className='bg-slate-50 flex flex-col items-center mt-20  '>
         { children }
     </div>
   )

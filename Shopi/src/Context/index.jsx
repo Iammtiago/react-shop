@@ -26,7 +26,6 @@ export const ShoppingCartProvider = ({children}) => {
 
     //get product by category
     const [searchByCategory, setSearchByCategory] = useState("");
-    // console.log(searchByTitle);
 
 
     useEffect(() => {
@@ -53,27 +52,17 @@ export const ShoppingCartProvider = ({children}) => {
     useEffect(() => {    
 
         if(searchByCategory?.length > 0 || searchByCategory !== ""){
-            console.log('CATEGORY: ',searchByCategory);
             let itemsToRender = items?.filter( item => item?.category?.name?.toLowerCase().includes(searchByCategory.toLowerCase()))
             
             if(searchByTitle?.length >= 1) itemsToRender = filteredItemsByTitle(itemsToRender, searchByTitle);
-            // let isTitle = searchByTitle?.length >= 1 ? filteredItemsByTitle(itemsToRender, searchByTitle) : itemsToRender;
             setFilteredItems(itemsToRender);
 
-            // setFilteredItems()
-            console.log('FILTEREDITEMS !== "": ',filteredItems);
         } else {
             setFilteredItems(searchByTitle?.length > 0 ? filteredItemsByTitle(items, searchByTitle) : items )
             if(searchByTitle?.length < 1 ) setFilteredItems(items) 
 
-            console.log("LENGTH SEARCH: ", searchByTitle?.length);
-            console.log('FILTEREDITEMS ALL: ',filteredItems);
         }
 
-        return () =>{
-            setSearchByTitle(null)
-            // setSearchByCategory(null)
-        }
     }, [items, searchByTitle, searchByCategory])
 
 

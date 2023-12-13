@@ -60,7 +60,7 @@ const CartMenu = () => {
                 <span className='font-semibold text-2xl'> ${totalPrice(context.cartProducts)}</span>
             </p>
             {
-                context.count > 1 && 
+                context.count > 0 && 
                 
                 <Link to='/my-orders/last'>
                     <button className='relative bg-black/90 py-3 text-slate-50/90 rounded-lg w-full ' onClick={() => handleCheckout()}>Checkout</button>

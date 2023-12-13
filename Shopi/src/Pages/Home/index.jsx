@@ -14,20 +14,6 @@ const Home = () => {
 
   const renderView = () => {
 
-    // let itemsToRender = context.filteredItems;
-    let valueAnterior;
-    if(context.searchByCategory == "" || !context.searchByCategory){
-      valueAnterior = context.searchByCategory
-      // if(context.searchByTitle?.length >= 1) itemsToRender = context.filteredItemsByTitle(context.items, context.searchByTitle);
-      // itemsToRender = context.items?.filter( item => item?.category?.name?.toLowerCase().includes(searchByCategory.toLowerCase()))
-      // context.setFilteredItems(itemsToRender);
-    } 
-    if (valueAnterior != context.searchByCategory){
-      valueAnterior = context.searchByCategory
-      // context.setFilteredItems(null)
-    }
-
-
     if (context.filteredItems?.length > 0) {
       return context.filteredItems.map((item,index) => {
         if(item.category.name !== "Change title"){
@@ -52,14 +38,14 @@ const Home = () => {
       <div className='flex justify-center items-center w-80 relative mb-5'>
         <h1 className='m-2 text-3xl'>Home</h1>
       </div>
-      <div className='h-16 mb-2'>
+      {/* <div className='h-16 mb-2'>
         <input 
           type="text" 
           className='border border-black bg-slate-100/20 w-80 rounded-lg p-4 mb-5 hover:border-gray-700/70 hover:border-b-2 hover:shadow-lg' 
           placeholder='Search a product...' 
           onChange={(event) => context.setSearchByTitle(event.target.value)}
         />
-      </div>
+      </div> */}
 
         <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg flex-wrap'>
           {

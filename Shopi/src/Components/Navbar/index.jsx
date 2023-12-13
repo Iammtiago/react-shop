@@ -1,3 +1,4 @@
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ShoppingCartContext } from '../../Context'
@@ -11,9 +12,9 @@ const Navbar = () => {
 
     let activeStyle = "underline underline-offset-4 font-semibold"
   return (
-    <nav className=' bg-slate-100 flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-normal '>
-        <ul className='flex items-center gap-3 '>
-            <li className='font-bold text-lg cursor-pointer'>
+    <nav className=' bg-slate-100 flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-base font-normal '>
+        <ul className='flex items-center gap-3'>
+            <li className='font-bold text-2xl cursor-pointer'>
                 <NavLink 
                 to='/' 
                 >
@@ -52,22 +53,22 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink 
-                to='/furnitures' 
-                onClick={() => context.setSearchByCategory('furnitures')}
+                to='/shoes' 
+                onClick={() => context.setSearchByCategory('shoes')}
                 className= {({ isActive }) => isActive ? activeStyle : undefined }
                 >
 
-                    Furnitures
+                    Shoes
                 </NavLink>
             </li>
             <li>
                 <NavLink 
-                to='/toys' 
-                onClick={() => context.setSearchByCategory('toys')}
+                to='/miscellaneous' 
+                onClick={() => context.setSearchByCategory('miscellaneous')}
                 className= {({ isActive }) => isActive ? activeStyle : undefined }
                 >
 
-                    Toys
+                    Miscellaneous
                 </NavLink>
             </li>
             <li>
@@ -81,10 +82,28 @@ const Navbar = () => {
                 </NavLink>
             </li>
         </ul>
-        <ul className='flex items-center gap-3'> 
-            <li className='text-black/70'>
-                tiagoddd279@gmail.com
+        <ul className='flex justify-between items-center gap-3 h-10'> 
+            <li className='h-full my-2 mt-5 relative text-gray-400'>
+            
+                <input 
+                    type="text" 
+                    className='border border-slate-500/90 mt-1 bg-slate-100/20 w-60 mx-6 rounded-lg p-1 pl-9 hover:border-slate-700/90 hover:border-b-2 hover:shadow-lg' 
+                    placeholder={`Search a product...`} 
+                    onChange={(event) => context.setSearchByTitle(event.target.value)}
+                />
+                {/* <MagnifyingGlassIcon className='w-2 h-2 mt-1 text-black'/> */}
+                <MagnifyingGlassIcon className="w-6 h-6 pointer-events-none absolute top-1/2  transform -translate-y-1/2 left-8" />
+                {/* <div className="relative text-gray-400">
+                    <input 
+                    type="text" 
+                    className="form-input w-full"
+                    placeholder="Buscar..."
+                    />
+                </div> */}
             </li>
+            {/* <li className='text-black/70'>
+                tiagoddd279@gmail.com
+            </li> */}
             <li>
                 <NavLink 
                 to='/my-orders' 
@@ -94,7 +113,7 @@ const Navbar = () => {
                     My Orders
                 </NavLink>
             </li>
-            <li>
+            {/* <li>
                 <NavLink 
                 to='/my-account' 
                 className= {({ isActive }) => isActive ? activeStyle : undefined }
@@ -102,15 +121,15 @@ const Navbar = () => {
 
                     My account
                 </NavLink>
-            </li>
+            </li> */}
             <li>
-                <NavLink 
+                {/* <NavLink 
                 to='/sign-in' 
                 className= {({ isActive }) => isActive ? activeStyle : undefined }
                 >
 
                     Sing in
-                </NavLink>
+                </NavLink> */}
             </li>
             <li className='flex gap-1 cursor-pointer' onClick={() => {context.toggleCartMenu()}}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
