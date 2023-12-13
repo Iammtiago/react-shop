@@ -59,9 +59,13 @@ const CartMenu = () => {
                 <span className='font-medium '>Total: </span>
                 <span className='font-semibold text-2xl'> ${totalPrice(context.cartProducts)}</span>
             </p>
-            <Link to='/my-orders/last'>
-                <button className='relative bg-black/90 py-3 text-slate-50/90 rounded-lg w-full ' onClick={() => handleCheckout()}>Checkout</button>
-            </Link>
+            {
+                context.count > 1 && 
+                
+                <Link to='/my-orders/last'>
+                    <button className='relative bg-black/90 py-3 text-slate-50/90 rounded-lg w-full ' onClick={() => handleCheckout()}>Checkout</button>
+                </Link>
+            }
 
         </div>
 
