@@ -65,8 +65,8 @@ export const ShoppingCartProvider = ({children}) => {
         } else {
             setFilteredItems(searchByTitle?.length > 0 ? filteredItemsByTitle(items, searchByTitle) : items )
             if(searchByTitle?.length < 1 ) setFilteredItems(items) 
-             
-            console.log("LENGTH SEARCH: ", searchByTitle.length);
+
+            console.log("LENGTH SEARCH: ", searchByTitle?.length);
             console.log('FILTEREDITEMS ALL: ',filteredItems);
         }
 
