@@ -1,5 +1,4 @@
-import React, { createContext } from 'react'
-import { useState } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 
 export const ShoppingCartContext = createContext()
 
@@ -16,6 +15,66 @@ export const ShoppingCartProvider = ({children}) => {
     
     // Shopping Cart ~ Order 
     const [order, setOrder] = useState([]);
+
+    //Get Products
+    const [items, setItems] = useState(null);
+    //filtered items
+    const [filteredItems, setFilteredItems] = useState(null);
+
+    //get product by title
+    const [searchByTitle, setSearchByTitle] = useState("");
+
+    //get product by category
+    const [searchByCategory, setSearchByCategory] = useState("");
+    // console.log(searchByTitle);
+
+
+    useEffect(() => {
+    try {
+        
+        fetch('https://api.escuelajs.co/api/v1/products')
+        .then(response => response.json())
+        .then(data => {setItems(data)})
+
+    } catch (error) {
+        console.log("ERROR: ", error);
+    }
+
+    }, [])
+
+    const filteredItemsByTitle = (items, searchByTitle) => {
+        return items?.filter( item => item?.title?.toLowerCase().includes(searchByTitle.toLowerCase()))
+    }
+    
+    const filteredItemsByCategory = (items, searchByCategory) => {
+        return items?.filter( item => item?.category?.name?.toLowerCase().includes(searchByCategory.toLowerCase()))
+    }
+
+    useEffect(() => {    
+
+        if(searchByCategory?.length > 0 || searchByCategory !== ""){
+            console.log('CATEGORY: ',searchByCategory);
+            let itemsToRender = items?.filter( item => item?.category?.name?.toLowerCase().includes(searchByCategory.toLowerCase()))
+            
+            if(searchByTitle?.length >= 1) itemsToRender = filteredItemsByTitle(itemsToRender, searchByTitle);
+            // let isTitle = searchByTitle?.length >= 1 ? filteredItemsByTitle(itemsToRender, searchByTitle) : itemsToRender;
+            setFilteredItems(itemsToRender);
+
+            // setFilteredItems()
+            console.log('FILTEREDITEMS !== "": ',filteredItems);
+        } else {
+            setFilteredItems(searchByTitle?.length > 0 ? filteredItemsByTitle(items, searchByTitle) : items )
+            if(searchByTitle?.length < 1 ) setFilteredItems(items) 
+             
+            console.log("LENGTH SEARCH: ", searchByTitle.length);
+            console.log('FILTEREDITEMS ALL: ',filteredItems);
+        }
+
+        return () =>{
+            setSearchByTitle(null)
+            // setSearchByCategory(null)
+        }
+    }, [items, searchByTitle, searchByCategory])
 
 
 
@@ -61,7 +120,16 @@ export const ShoppingCartProvider = ({children}) => {
             openCartMenu,
             handleDelete,
             order,
-            setOrder
+            setOrder,
+            items,
+            setItems,
+            searchByTitle,
+            setSearchByTitle,
+            filteredItems,
+            setFilteredItems,
+            filteredItemsByTitle,
+            searchByCategory,
+            setSearchByCategory,
         }}>
             {children}
         {/* </ShoppingCartContext.Provider > */}

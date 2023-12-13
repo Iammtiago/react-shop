@@ -69,9 +69,9 @@ const Card = (data) => {
             className={` relative mb-2  w-full h-4/5  p-1  `}
             onClick={() => showProduct(data.data, data.data.id)}
         >
-            <span className=' absolute bottom-0 left-0 bg-white/60 rounded- text-black font-medium text-xs m-2 px-3 py-0.5'>{ category }</span>
+            <span className=' absolute bottom-0 left-0 bg-white/60 rounded-xl text-black font-medium text-xs m-2 px-3 py-0.5'>{ category }</span>
             {/* <img className=' w-full h-full object-cover rounded-lg' src="https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="headphones" /> */}
-            <img className=' w-full h-full object-cover rounded-lg' src={urlImg} alt="headphones" />
+            <img className=' w-full h-full object-cover rounded-lg' src={urlImg} alt={product} />
             {renderIcon(data.data.id)} 
             {/* <PlusSmallIcon className='w-6 h-6 text-black'/> */}
         </figure>

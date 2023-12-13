@@ -24,6 +24,7 @@ const CartMenu = () => {
 
         context.setOrder([...context.order, orderToAdd])
         context.setCartProducts([]);
+        context.setSearchByTitle(null);
         context.toggleCartMenu();
         context.setCount(0)
         setConta(conta => conta + 1);
