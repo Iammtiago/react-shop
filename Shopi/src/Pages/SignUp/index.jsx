@@ -1,7 +1,7 @@
 import { ChevronLeftIcon } from '@heroicons/react/24/solid'
 import Layout from '../../Components/Layout'
 import React, { useContext, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { ShoppingCartContext } from '../../Context'
 
 export default function SignUp() {
@@ -22,7 +22,8 @@ export default function SignUp() {
     context.setAccount(data);
 
     //signIn
-    context.handleSingIn()
+    // context.handleSingIn()
+    return <Navigate replace to={'/'} />
   }
 
   return (

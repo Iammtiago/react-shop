@@ -23,16 +23,42 @@ export default function SignIn() {
         </div>
 
         <label className='text-left'>Your email:</label>
-        <input className='rounded-lg border-2 border-black  p-2 text-sm mb-3' defaultValue={account?.email}  placeholder='hi@helloworld.com'></input>
+        <input 
+          type='email'
+          id='email'
+          className='rounded-lg border-2 border-black  p-2 text-sm mb-3' 
+          defaultValue={account?.email}  
+          placeholder='hi@helloworld.com' 
+        />
 
         <label className='text-left'>Your password:</label>
-        <input className='rounded-lg border-2 border-black p-2 text-sm mb-3' defaultValue={account?.password} type='password' placeholder='**********'></input>
+        <input 
+          id='password'
+          className='rounded-lg border-2 border-black p-2 text-sm mb-3' 
+          // defaultValue={account?.password} 
+          type='password' 
+          placeholder='**********' 
+        />
 
         <NavLink to={'/'}>
           <button 
             className='py-3 w-full bg-black text-white cursor-pointer rounded-lg hover:shadow-lg'
             disabled={!hasUserAnAccount}
-            onClick={() => { context.handleSingIn() }}
+            onClick={() => { 
+              let email = document.getElementById('email').value;
+              let password = document.getElementById('password').value;
+            
+              if (email == account.email && password == account.password) {
+                  localStorage.setItem('sign-out', JSON.stringify(false));
+                  context.setSignOut(false);
+                  
+                  //redirect
+                  return <Navigate replace to={'/'} />
+              } else {
+                location.reload()
+              }
+
+             }}
           >
             Log in
           </button>

@@ -92,14 +92,6 @@ export const ShoppingCartProvider = ({children}) => {
 
     }, [items, searchByTitle, searchByCategory])
 
-    const handleSingIn = () => {
-        localStorage.setItem('sign-out', JSON.stringify(false));
-        setSignOut(false);
-        //redirect
-        return <Navigate replace to={'/'} />
-      }
-
-
     const closeProductDetail = () => setIsProductDetailOpen(false)
     const openProductDetail = () => {
         setIsProductDetailOpen(true)
@@ -156,7 +148,6 @@ export const ShoppingCartProvider = ({children}) => {
             setAccount,
             signOut,
             setSignOut,
-            handleSingIn
         }}>
             {children}
         </ShoppingCartContext.Provider>
