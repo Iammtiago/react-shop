@@ -2,12 +2,12 @@
   "name": "react-shop",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "Shopi/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https://Iammtiago.github.io/react-shop/"
+  "homepage": "https://Iammtiago.github.io/react-shop/Shopi/index.html"
 }
