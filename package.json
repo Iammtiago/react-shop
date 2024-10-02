@@ -9,5 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https://Iammtiago.github.io/react-shop/Shopi/index.html"
+  "homepage": "https://Iammtiago.github.io/react-shop/Shopi/index.html",
+  "dependencies": {
+    "react-shop": "file:"
+  }
 }
